@@ -31,7 +31,7 @@ namespace Estudiantes.Domain.Entity
             if (this.IsActive) this.IsActive=false;
         }
 
-        public abstract calculateScholarship();
+        public abstract decimal calculateScholarship();
 
         private Notification validateForSave(){
             Notification notification = new Notification();
