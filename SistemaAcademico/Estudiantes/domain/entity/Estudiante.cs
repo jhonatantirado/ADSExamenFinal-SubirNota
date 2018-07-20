@@ -1,7 +1,7 @@
 using Common.Application;
-using Common;
 
-namespace Estudiantes.Domain.Entity{
+namespace Estudiantes.Domain.Entity
+{
     public abstract class Estudiante
     {
         public long Id { get; set; }
@@ -31,7 +31,7 @@ namespace Estudiantes.Domain.Entity{
             if (this.IsActive) this.IsActive=false;
         }
 
-        public abstract decimal calculateScholarship();
+        public abstract calculateScholarship();
 
         private Notification validateForSave(){
             Notification notification = new Notification();

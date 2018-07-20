@@ -1,7 +1,8 @@
 namespace Estudiantes.Domain.Entity{
     public class EstudianteDoctorado: Estudiante{
         public override decimal calculateScholarship(){
-            return 100;
+            this.Scholarship=100;
+            return this.Scholarship;
         }
     }
 }
