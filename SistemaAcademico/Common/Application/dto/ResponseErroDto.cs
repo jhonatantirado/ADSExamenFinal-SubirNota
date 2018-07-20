@@ -1,8 +1,7 @@
 
+using System.Collections.Generic;
 namespace Common.Application.Dto
 {
-    using System.Collections.Generic;
-
     public class ResponseErrorDto
     {
         public int httpStatus { get; set; }

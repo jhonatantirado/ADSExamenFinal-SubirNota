@@ -1,12 +1,9 @@
 ﻿
+using Locations.Domain.Repository;
+using Estudiantes.Domain.Repository;
 
 namespace Common.Infrastructure.Repository
 {
-    using Common.Infrastructure.Repository;
-    using Locations.Domain.Repository;
-    using Estudiantes.Domain.Repository;
-
-
     public class UnitOfWork  : IUnitOfWork
     {
         protected readonly PracticaExamenContext _context;
@@ -16,7 +13,6 @@ namespace Common.Infrastructure.Repository
             _context = dbContext;
             Locations = new LocationsRepository(_context);
             Estudiantes = new EstudiantesRepository(_context);
-
         }
 
         public ILocationsRepository Locations  { get; private set; }

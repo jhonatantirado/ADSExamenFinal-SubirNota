@@ -11,6 +11,7 @@ namespace Estudiantes.Application
     {
         decimal calculateScholarship(string studentCode);
         List<EstudianteDTO> getByStudentType(string studentType); 
+        List<EstudianteDTO> getAll(); 
 
     }
 }

@@ -1,7 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 namespace Common.Application{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
+
     public class Notification {
         private List<Error> errors = new List<Error>();
 

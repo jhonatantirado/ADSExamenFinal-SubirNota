@@ -1,12 +1,12 @@
-﻿
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+
 namespace Common.Infrastructure.Repository
 {
-    using Microsoft.EntityFrameworkCore;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Linq.Expressions;
-    using System.Threading.Tasks;
+
 
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {

@@ -1,10 +1,9 @@
-﻿
+﻿using Locations.Domain;
+using Estudiantes.Domain.Entity;
+using Microsoft.EntityFrameworkCore;
+
 namespace Common.Infrastructure.Repository
 {
-    using Locations.Domain;
-    using Estudiantes.Domain.Entity;
-    using Microsoft.EntityFrameworkCore;
-
     public class PracticaExamenContext : DbContext
     {
         public PracticaExamenContext()
@@ -20,7 +19,10 @@ namespace Common.Infrastructure.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.Entity<EstudiantePregrado>();
+            modelBuilder.Entity<EstudianteMaestria>();
+            modelBuilder.Entity<EstudianteDoctorado>();
+            base.OnModelCreating(modelBuilder);
         }
 
     }

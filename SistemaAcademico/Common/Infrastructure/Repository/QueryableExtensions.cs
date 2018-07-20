@@ -1,17 +1,15 @@
-﻿namespace Common.Infrastructure.Repository
+﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
+
+namespace Common.Infrastructure.Repository
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Linq.Expressions;
-    using System.Threading.Tasks;
 
     public static class QueryableExtensions
     {
         public static IQueryable<T> OrderBy<T>(this IQueryable<T> source, string orderBy, string orderDirection)
         {
             var expression = source.Expression;
-
             var parameter = Expression.Parameter(typeof(T), "x");
             var selector = Expression.PropertyOrField(parameter, orderBy);
             var method = string.Equals(orderDirection, "desc", StringComparison.OrdinalIgnoreCase)

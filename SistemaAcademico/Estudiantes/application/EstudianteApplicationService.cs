@@ -27,10 +27,20 @@
 
         public decimal calculateScholarship(string studentCode){
             var estudiante = _iUnitOfWork.Estudiantes.findByStudentCode(studentCode);
-            return estudianteDomainService.calculateScholarship(estudiante);
+            if (estudiante!=null){
+                return estudianteDomainService.calculateScholarship(estudiante);
+            }
+            return 0;
+            
         }
         public List<EstudianteDTO> getByStudentType(string studentType){
             var estudiantes = _iUnitOfWork.Estudiantes.findByStudentType(studentType);
+            List<EstudianteDTO> estudiantesDto = _mapper.Map<List<EstudianteDTO>>(estudiantes);
+            return estudiantesDto;
+        }
+        
+        public List<EstudianteDTO> getAll(){
+            var estudiantes = _iUnitOfWork.Estudiantes.getAll();
             List<EstudianteDTO> estudiantesDto = _mapper.Map<List<EstudianteDTO>>(estudiantes);
             return estudiantesDto;
         }

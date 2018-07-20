@@ -1,5 +1,5 @@
 using Common.Application;
-using SistemaAcademico.Common;
+using Common;
 
 namespace Estudiantes.Domain.Entity{
     public abstract class Estudiante

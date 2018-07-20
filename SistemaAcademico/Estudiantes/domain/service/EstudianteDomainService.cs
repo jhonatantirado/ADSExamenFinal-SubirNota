@@ -11,16 +11,7 @@ namespace Estudiantes.Domain.Service
     public class EstudianteDomainService
     {
 
-        public decimal calculateScholarship(Estudiante estudiante){
-            return estudiante.calculateScholarship();
-        }
-
-        public List<Estudiante> getByStudentType(string studentType){
-            return null;
-
-        }
-
-
+        public decimal calculateScholarship(Estudiante estudiante) => estudiante.calculateScholarship();
 
     }
 }

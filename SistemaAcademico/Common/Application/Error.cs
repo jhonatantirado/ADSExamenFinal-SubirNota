@@ -1,7 +1,5 @@
+using System;
 namespace Common.Application{
-
-    using System;
-
     public class Error {
         
         public string message { get; set; }

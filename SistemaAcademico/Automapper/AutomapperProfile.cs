@@ -4,14 +4,10 @@ using AutoMapper;
 using System;
 using System.Collections.Generic;
 
-namespace Automapper
+namespace SistemaAcademico.Automapper
 {
     public class AutomapperProfile : Profile
     {
-        public AutomapperProfile()
-        {
-            CreateMap<Estudiante, EstudianteDTO>().ReverseMap();
-        }
+        public AutomapperProfile() => CreateMap<Estudiante, EstudianteDTO>().ReverseMap();
     }
 }
-

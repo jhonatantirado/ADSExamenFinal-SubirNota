@@ -10,27 +10,13 @@ namespace Estudiantes.Domain.Repository{
         public EstudiantesRepository(PracticaExamenContext dbContext) : base(dbContext)
         {
         }
-
-        public void save(Estudiante location)
-        {
-            base.Update(location);
-        }
-        public void deactivate(long id){
-            Estudiante location = base.GetById(id);
-            location.IsActive = false;
-            base.Update(location);
-
-        }
-        public void activate(long id){
-            Estudiante location = base.GetById(id);
-            location.IsActive = true;
-            base.Update(location);
-        }
-        public Estudiante findByStudentCode (string studentCode){
-            return base.Context.Set<Estudiante>().Where(x => x.StudentCode==studentCode && x.IsActive).FirstOrDefault();
-        }
-        public List<Estudiante> findByStudentType (string studentType){
-            return base.Context.Set<Estudiante>().Where(x => x.StudentType==studentType && x.IsActive).ToList();
-        }
+        
+        public Estudiante findByStudentCode(string studentCode) => base.Context.Set<Estudiante>().Where(x => x.StudentCode == studentCode && x.IsActive).FirstOrDefault();
+        public List<Estudiante> getAll() => base.Context.Set<Estudiante>().Where(x => x.IsActive).OrderBy(x=> x.LastName).ThenBy(x=>x.FirstName).ToList();
+        public List<Estudiante> findByStudentType(string studentType) {
+            return base.Context.Set<Estudiante>().
+            Where(x => x.StudentType == studentType && x.IsActive).
+            OrderBy(x=> x.LastName).ThenBy(x=>x.FirstName).ToList();
+        } 
     }
 }

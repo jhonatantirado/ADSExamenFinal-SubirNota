@@ -1,7 +1,7 @@
 
+using System.Collections.Generic;
 namespace Common.Application.Dto
 {
-    using System.Collections.Generic;
     public class ResponseOkQueryDto<T> {
 	private int httpStatus;
 	private List<T> data;
