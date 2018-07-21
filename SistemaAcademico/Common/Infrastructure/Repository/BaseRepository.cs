@@ -6,8 +6,6 @@ using System.Linq.Expressions;
 
 namespace Common.Infrastructure.Repository
 {
-
-
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
         DbSet<T> _dbSet;

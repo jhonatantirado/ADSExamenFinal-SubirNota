@@ -1,5 +1,4 @@
-﻿using Locations.Domain;
-using Estudiantes.Domain.Entity;
+﻿using Estudiantes.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Common.Infrastructure.Repository
@@ -13,8 +12,6 @@ namespace Common.Infrastructure.Repository
         public PracticaExamenContext(DbContextOptions<PracticaExamenContext> options) : base(options)
         {
         }
-
-        public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<Estudiante> Estudiantes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
