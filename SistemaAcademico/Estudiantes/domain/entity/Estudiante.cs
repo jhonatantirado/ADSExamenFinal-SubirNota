@@ -23,6 +23,10 @@ namespace Estudiantes.Domain.Entity
             return !string.IsNullOrWhiteSpace(this.FirstName) && !string.IsNullOrWhiteSpace(this.LastName);
         }
 
+        public bool hasStudentType(){
+            return !string.IsNullOrWhiteSpace(this.StudentType);
+        }
+
         public void activarEstudiante(){
             if (!this.IsActive) this.IsActive=true;
         }
@@ -33,13 +37,21 @@ namespace Estudiantes.Domain.Entity
 
         public abstract decimal calculateScholarship();
 
-        private Notification validateForSave(){
+        public Notification validateForSave(){
             Notification notification = new Notification();
+
+            if (this == null){
+                notification.addError("The student is null");
+            }
+
             if (!this.hasIdentity()){
                 notification.addError("The student doesn´t have a student code");
             }
             if (!this.hasFullName()){
                 notification.addError("The student doesn´t have a valid full name");
+            }
+            if (!this.hasStudentType()){
+                notification.addError("The student doesn´t have a valid student type");
             }
             return notification;
         }

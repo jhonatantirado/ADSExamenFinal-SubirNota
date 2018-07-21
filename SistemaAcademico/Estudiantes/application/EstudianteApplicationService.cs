@@ -27,11 +27,7 @@
 
         public decimal calculateScholarship(string studentCode){
             var estudiante = _iUnitOfWork.Estudiantes.findByStudentCode(studentCode);
-            if (estudiante!=null){
-                return estudianteDomainService.calculateScholarship(estudiante);
-            }
-            return 0;
-            
+            return estudianteDomainService.calculateScholarship(estudiante);
         }
         public List<EstudianteDTO> getByStudentType(string studentType){
             var estudiantes = _iUnitOfWork.Estudiantes.findByStudentType(studentType);

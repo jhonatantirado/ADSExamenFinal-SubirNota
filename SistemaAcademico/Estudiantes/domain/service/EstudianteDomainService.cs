@@ -10,8 +10,31 @@ namespace Estudiantes.Domain.Service
 
     public class EstudianteDomainService
     {
+        public decimal calculateScholarship(Estudiante estudiante) {
+            try {
+                Notification notification = this.validation(estudiante);
+                if (notification.hasErrors())
+                {
+                    throw new ArgumentException(notification.errorMessage());
+                }
+                return estudiante.calculateScholarship();
+            }
+            catch (Exception){
+                throw;
+            }
+        } 
+        public Notification validation(Estudiante estudiante){
 
-        public decimal calculateScholarship(Estudiante estudiante) => estudiante.calculateScholarship();
+            Notification notification = new Notification();
+
+            if (estudiante == null){
+                notification.addError("The student code doesn't exist");
+                return notification;
+            }
+
+            notification = estudiante.validateForSave();
+            return notification;
+        }
 
     }
 }
