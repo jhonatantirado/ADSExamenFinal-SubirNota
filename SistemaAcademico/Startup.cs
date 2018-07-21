@@ -58,6 +58,8 @@ namespace SistemaAcademico
                 app.UseHsts();
             }
 
+			app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
             app.UseHttpsRedirection();
             app.UseMvc();
         }
